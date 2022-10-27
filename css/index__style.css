@@ -4,7 +4,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /*Убираем внешние отступы*/
@@ -23,8 +23,8 @@ figcaption,
 blockquote,
 dl,
 dd {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /*Удаляем стандартную стилизацию UL*/
@@ -53,42 +53,42 @@ a {
 
 @font-face {
     font-family: "Montserrat";
-    src:local("Montserrat-bold"),
+    src: local("Montserrat-bold"),
         url(../fonts/AnyConv.com__Montserrat-Bold.woff2) format("woff2"),
         url(../fonts/AnyConv.com__Montserrat-Bold.woff) format("woff");
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Montserrat";
-    src:local("Montserrat-ExtraBold"),
+    src: local("Montserrat-ExtraBold"),
         url(../fonts/AnyConv.com__Montserrat-ExtraBold.woff2) format("woff2"),
         url(../fonts/AnyConv.com__Montserrat-ExtraBold.woff) format("woff");
-        font-weight: 800;
-        font-style: normal;
-        font-display: swap;
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Montserrat";
-    src:local("Montserrat-Regular"),
+    src: local("Montserrat-Regular"),
         url(../fonts/AnyConv.com__Montserrat-Regular.woff2) format("woff2"),
         url(../fonts/AnyConv.com__Montserrat-Regular.woff) format("woff");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Montserrat";
-    src:local("Montserrat-SemiBold"),
+    src: local("Montserrat-SemiBold"),
         url(../fonts/AnyConv.com__Montserrat-SemiBold.woff2) format("woff2"),
         url(../fonts/AnyConv.com__Montserrat-SemiBold.woff) format("woff");
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
 }
 
 /*цветва*/
@@ -112,9 +112,9 @@ a {
 
 body {
     min-width: 320px;
-    font-family: 'Montserrat', 'sans-serif' ;
-    background-color: #E5E5E5;
-    
+    font-family: 'Montserrat', 'sans-serif';
+    background-color: var(--white-color);
+
 }
 
 img {
@@ -139,6 +139,7 @@ img {
 }
 
 .header__container {
+    position: relative;
     justify-content: space-between;
     padding: 13px 60px 10px 74px;
     align-items: center;
@@ -151,11 +152,11 @@ img {
     display: none;
     width: 30px;
     height: 20px;
-    
+
 }
 
 .header__burger__line {
-    position: relative;   
+    position: relative;
     display: block;
     width: 30px;
     height: 3px;
@@ -202,7 +203,7 @@ img {
 }
 
 .nav__item:not(:last-child) {
-    margin-right: 85px;    
+    margin-right: 85px;
 }
 
 .nav__link {
@@ -210,7 +211,7 @@ img {
     font-size: 18px;
     line-height: 22px;
     color: var(--black-color);
-    transition: color 0.3s linear; 
+    transition: color 0.3s linear;
 }
 
 .nav__link::before {
@@ -240,9 +241,9 @@ img {
 
 .nav__link:hover::before {
     opacity: 1;
-}   
+}
 
-.nav__link:focus::after  {
+.nav__link:focus::after {
     opacity: 1;
 }
 
@@ -284,7 +285,7 @@ img {
 }
 
 .header__search:hover {
-    fill:var(--orange-color);
+    fill: var(--orange-color);
     stroke: var(--orange-color);
 }
 
@@ -298,8 +299,41 @@ img {
 .header__search:active {
     fill: var(--orange-color);
     stroke: var(--orange-color);
-    transform: translateX(-10px);
+    
 }
+
+.search-form {
+    display: flex;
+    position: absolute;
+    top: -110%;
+    right: 35px;
+    opacity: 0;
+    align-items: center;
+    padding: 16px 16px 16px 32px;
+    max-width: 33%;
+    border-radius: 10px;
+    background-color: var(--white-color);
+    box-shadow: 0px 0px 20px 0px #0000001F;
+    transition: top .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.search-form__input {
+    margin-right: 14px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--metal-color);
+}
+
+.search-form__send {
+    margin-right: 22px;
+}
+
+.search-form_show {
+    top: 20px;
+    opacity: 1;
+}
+
+
 
 /*hero*/
 
@@ -311,19 +345,12 @@ img {
     max-width: inherit;
     background-image: url(../img/hero__bg-1.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
     border-radius: 32px;
 }
 
-/*.hero__container::before {
-    content: "";
-    position: absolute;
-    bottom: 35px;
-    left: 850px;
-    width: 85px;
-    height: 15px;
-    background-image: url(../img/shootouts.svg);
-}*/
+
 
 .hero__title {
     display: inline-block;
@@ -369,7 +396,7 @@ img {
 
 /*about-us*/
 
-.about-us__container{
+.about-us__container {
     margin-bottom: 100px;
 }
 
@@ -462,7 +489,7 @@ img {
     background-image: url(../img/about-us__raight-top-card.svg);
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: left center;    
+    background-position: left center;
 }
 
 .cards__right__bottom {
@@ -470,7 +497,7 @@ img {
     background-image: url(../img/about-us__raight-bottom-card.svg);
     background-repeat: no-repeat;
     background-size: auto;
-    background-position: left center;  
+    background-position: left center;
 }
 
 .card__right:not(:last-child) {
@@ -495,7 +522,7 @@ img {
 /*how*/
 
 .how__container {
-    margin-bottom: 112px ;
+    margin-bottom: 112px;
 }
 
 .how__title {
@@ -539,7 +566,7 @@ img {
 .specification__content {
     margin-right: 2%;
     padding-right: 8%;
-    max-width: 49%;   
+    max-width: 49%;
 }
 
 .specification__bg {
@@ -548,7 +575,7 @@ img {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center right;
-    border-radius: 39px ;
+    border-radius: 39px;
 }
 
 .specification__title {
@@ -638,13 +665,13 @@ img {
 }
 
 .faq__item:first-child {
-    border-top: solid 1px var(--metal-color) ;
+    border-top: solid 1px var(--metal-color);
 }
 
 .question {
     justify-content: space-between;
     align-items: center;
-    transition: fill 0.5s linear,  color 0.5s linear;
+    transition: fill 0.5s linear, color 0.5s linear;
 }
 
 .question svg {
@@ -686,7 +713,7 @@ img {
     transition: color 0.5s linear;
 }
 
-.question svg  {
+.question svg {
     fill: inherit;
 }
 
@@ -788,12 +815,12 @@ img {
 }
 
 .request__full-name {
-    
+
     height: 60px;
 }
 
 .request__email {
-    
+
     height: 60px;
 }
 
@@ -836,7 +863,7 @@ img {
     font-size: 16px;
     line-height: 19.5px;
     color: var(--white-color);
-    transition: background-color 0.3s linear ;
+    transition: background-color 0.3s linear;
 }
 
 .request__btn:hover {
@@ -885,12 +912,12 @@ img {
     left: -20px;
     height: 15px;
     width: 15px;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.94952 1.08233L3.99977 6.03208L1.17135 3.20365' stroke='%2397EE3F' stroke-width='2'/%3E%3C/svg%3E");   
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.94952 1.08233L3.99977 6.03208L1.17135 3.20365' stroke='%2397EE3F' stroke-width='2'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.request__label input:checked + .request__text::after {
+.request__label input:checked+.request__text::after {
     display: block;
 }
 
