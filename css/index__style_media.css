@@ -12,11 +12,11 @@
 }
 
 @media (max-width: 1600px) {
-   
+
     /*hero*/
 
-    .hero__container {
-        padding: 100px 81px;
+    .hero__content {
+        padding: 0;
     }
 
     /*about-us*/
@@ -30,7 +30,7 @@
         margin: 0;
         width: 100%;
         height: 640px;
-        margin-bottom: 32px ;
+        margin-bottom: 32px;
     }
 
     .cards__right {
@@ -40,10 +40,16 @@
     .card__right {
         padding: 65px 157px 65px 77px;
         min-height: 295px;
-    }  
-    
+    }
+
     .cards__content {
         min-height: 140px;
+    }
+
+    /*faq*/
+
+    .question__text {
+        padding-right: 30%;
     }
 
     /*footer*/
@@ -52,7 +58,7 @@
         margin-right: 6%;
     }
 
-}   
+}
 
 @media (max-width: 1440px) {
 
@@ -63,28 +69,97 @@
     }
 
     /*header*/
-
-    .header__burger {
-        display: block;
-    }
-
-    .header__nav {
-        display: none;
+    .header__container {
+        position: relative;
     }
 
     .header__logo-link {
         margin: 0;
     }
 
+    .header__burger {
+        display: block;
+        z-index: 3;
+    }
+
+    .header__burger__line:nth-child(1) {
+        transform: translateY(-10px);
+    }
+
+    .header__burger__line:nth-child(2){
+        
+    }
+    
+    .header__burger__line:nth-child(3) {
+        transform: translateY(10px);
+    }
+
+    
+
+    .header__nav {        
+        position: absolute;
+        padding: 170px 50px 0 50px;
+        opacity: 0;
+        height: 100vh;
+        z-index: 2;
+        top: 0;
+        left: -110%;        
+        background-color: var(--white-color);
+        box-shadow: 0px 5px 40px 0px #0000001A;
+        border-radius: 0px 0px 32px 32px;
+        transition: left .3s ease-in-out, opacity .3s ease-in-out;
+    }
+
+    .nav__list {
+        flex-direction: column;
+    }
+
+    .nav__item {
+        display: block;
+        margin: 0;
+    }
+
+    .nav__item:not(:last-child) {
+        margin-bottom: 60px;
+    }
+
+    .nav__link {
+        display: block;
+        width: 100%;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29.26px; 
+    }
+
+    .header.open .header__nav {
+        left: 0;
+        opacity: 2;
+    }
+
+    .header.open .header__burger__line:nth-child(1) {
+        transform: translateY(0px) rotate(45deg);        
+    }
+
+    .header.open .header__burger__line:nth-child(2){
+        opacity: 0;
+    }
+    
+    .header.open .header__burger__line:nth-child(3) {
+        transform: translateY(0px)  rotate(-45deg);        
+    }
+
+    /*faq*/
+
+    .question__text {
+        padding-right: 25%;
+    }
+
     /*how*/
 
-    .specification__bg {
-        background-image: url(../img/how_bg1024px-1.jpg);
-    }
 }
 
 @media (max-width: 1366px) {
-    
+
     .request {
         margin: 0;
     }
@@ -94,7 +169,11 @@
     }
 
     .faq__item {
-        padding: 33px 147px 36px 0;
+        padding: 33px 0 36px 0;
+    }
+
+    .ac .ac-trigger {
+        padding-right: 147px;
     }
 }
 
@@ -132,8 +211,10 @@
 
     .hero__container {
         margin-bottom: 37px;
+    }
+
+    .hero__text-box {
         padding: 160px 77px;
-        background-image: url(../img/hero__bg1024-1.jpg);
     }
 
     .hero__title {
@@ -149,6 +230,18 @@
         margin-bottom: 58px;
         font-size: 20px;
         line-height: 24.38px;
+    }
+
+    .hero__bg1 {
+        background-image: url(../img/hero__bg1024-1.jpg);
+    }
+    
+    .hero__bg2 {
+        background-image: url(../img/hero-pic-1024-2.png);
+    }
+    
+    .hero__bg3 {
+        background-image: url(../img/hero-pic-1024-3.png);
     }
 
     /*about-us*/
@@ -179,14 +272,26 @@
         margin-right: 0%;
         padding-right: 5%;
         max-width: 54%;
-    }
-
-    .specification__text {
-        margin-bottom: 26px;
-    }
+    }    
 
     .specification__bth-more {
         margin-right: 27px;
+    }
+
+    .specification__bg-pic1 {
+        background-image: url(../img/how__bg1024-pic1.jpg);
+    }
+    
+    .specification__bg-pic2 {
+        background-image: url(../img/how__bg1024-pic2.jpg);
+    }
+    
+    .specification__bg-pic3 {
+        background-image: url(../img/how__bg1024-pic3.jpg);
+    }
+    
+    .specification__bg-pic4 {
+        background-image: url(../img/how__bg1024-pic4.jpg);
     }
 
     /*faq*/
@@ -199,9 +304,13 @@
         font-size: 20px;
     }
 
+    .question__text {
+        padding-right: 20%;
+    }
+
     /*footer*/
 
-    .footer__container{
+    .footer__container {
         padding-top: 49px;
     }
 
@@ -209,11 +318,12 @@
         padding: 19px 38px;
     }
 
-   .footer__request {
-       
+    .footer__request {
+
         width: 58.6%;
-   }
-   .request__list {
+    }
+
+    .request__list {
         margin-bottom: 23px;
     }
 }
@@ -240,7 +350,7 @@
 
     /*about-us*/
 
-    .cards__left__container{
+    .cards__left__container {
         padding: 36px 40px;
     }
 
@@ -257,7 +367,8 @@
         min-height: 100px;
     }
 
-    .cards__right__top, .cards__right__bottom {
+    .cards__right__top,
+    .cards__right__bottom {
         padding-left: 130px;
         background-size: 114px 99px;
     }
@@ -265,7 +376,7 @@
     /*how*/
 
     .how__container {
-        margin-bottom: 49px;
+        margin-bottom: 56px;
     }
 
     .how__list {
@@ -276,21 +387,41 @@
         margin-right: 0;
     }
 
-    .specification {
-        flex-direction: column-reverse;
+    .how__specification {
+        padding-top: 320px;
+        padding-bottom: 85px;
+    }
+
+    .specification__tabs {
+        min-height: 353px;
+    }
+
+    .specification__bg {
+        width: 100%;
+        max-height: 284px;
     }
 
     .specification__content {
+        margin: 0;
         padding: 0;
         max-width: 100%;
     }
 
-    .specification__bg {
-        margin-bottom: 38px;
-        width: 100%;
-        min-height: 284px;
-        background-image: url(../img/how__bg-1.jpg);
+    .specification__bg-pic1 {
+        background-image: url(../img/how__bg768-pic1.jpg);
     }
+    
+    .specification__bg-pic2 {
+        background-image: url(../img/how__bg768-pic2.jpg);
+    }
+    
+    .specification__bg-pic3 {
+        background-image: url(../img/how__bg768-pic3.jpg);
+    }
+    
+    .specification__bg-pic4 {
+        background-image: url(../img/how__bg768-pic4.jpg);
+    }   
 
     /*footer*/
 
@@ -321,6 +452,10 @@
 
 @media (max-width: 768px) {
 
+    .swiper-container {
+        border-radius: 24px;
+    }
+
     /*header*/
 
     .header__container {
@@ -335,14 +470,20 @@
     .search-form_show {
         top: 5px;
     }
-    
+
+    .header__nav {
+        padding: 150px 50px 10px 50px;
+    }
+
+
+
 
     /*hero*/
 
-    .hero__container {
+    .hero__text-box {
         padding: 161px 40px;
-    }
-
+    }      
+    
     .hero__title {
         margin-bottom: -8px;
     }
@@ -353,6 +494,18 @@
 
     .hero__btn {
         padding: 25px 40px;
+    }
+
+    .hero__bg1 {
+        background-image: url(../img/hero-pic-768-1.png);
+    }
+    
+    .hero__bg2 {
+        background-image: url(../img/hero-pic-768-2.png);
+    }
+    
+    .hero__bg3 {
+        background-image: url(../img/hero-pic-768-3.png);
     }
 
     /*about-us*/
@@ -376,10 +529,13 @@
     }
 
     .faq__item {
-        padding: 36.4px 67px 25.1px 0;
+        padding: 36.4px 0 25.1px 0;
     }
 
-    
+    .ac .ac-trigger {
+        padding-right: 67px;
+    }
+
 }
 
 @media (max-width: 630px) {
@@ -387,7 +543,7 @@
 
     /*hero*/
 
-    .hero__container {
+    .hero__text-box {
         text-align: center;
         padding: 92px 40px;
     }
@@ -404,7 +560,7 @@
 
     /*about-us*/
 
-    .cards__left{
+    .cards__left {
         margin-bottom: 220px;
         min-height: 0;
         height: 400px;
@@ -417,7 +573,7 @@
         padding: 0;
         bottom: -48%;
         background-color: inherit;
-        color:var(--black-color);
+        color: var(--black-color);
     }
 
     .cards__left__text {
@@ -469,12 +625,11 @@
         font-size: 17px;
     }
 
-    .faq__item {
+    .ac .ac-trigger{
         padding-right: 57px;
     }
 
     .faq__item svg {
-        top: 38%;
         width: 40px;
         height: 40px;
     }
@@ -489,7 +644,7 @@
         flex-direction: column;
         padding-bottom: 15px;
         border-bottom: 1px solid var(--dark-grey-color);
-    }    
+    }
 
     .footer__request {
         width: 98%;
@@ -504,7 +659,7 @@
     .search-form {
         max-width: 100%;
     }
-    
+
     /*hero*/
 
     .hero__title {
@@ -542,6 +697,10 @@
 
     /*how*/
 
+    .how__specification {
+        padding-bottom: 45px;
+    }
+
     .how__title {
         font-size: 39px;
         line-height: 50px;
@@ -566,7 +725,7 @@
         line-height: 50px;
     }
 
-    /*footer*/ 
+    /*footer*/
 
     .footer__request {
         margin-bottom: 25px;
@@ -599,7 +758,7 @@
         height: 40px;
     }
 
-    
+
 }
 
 @media (max-width: 440px) {
@@ -612,6 +771,7 @@
         padding-left: 16px;
         padding-right: 16px;
     }
+
     /*header*/
 
     .header {
@@ -641,11 +801,11 @@
         margin-right: 11px;
     }
 
-    
+
 
     /*hero*/
 
-       .hero__container{
+    .hero__text-box {
         padding: 60px 10px 60px 10px;
         border-radius: 16px;
     }
@@ -665,6 +825,23 @@
         padding: 13px 26px;
         font-size: 12px;
         line-height: 14.63px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+
+    .hero__bg1 {
+        background-image: url(../img/hero-pic-320-1.png);
+    }
+    
+    .hero__bg2 {
+        background-image: url(../img/hero-pic-320-2.png);
+    }
+    
+    .hero__bg3 {
+        background-image: url(../img/hero-pic-320-3.png);
     }
 
     /*about-us*/
@@ -704,7 +881,8 @@
         line-height: 14.63px;
     }
 
-    .cards__right__top, .cards__right__bottom {
+    .cards__right__top,
+    .cards__right__bottom {
         padding-top: 60px;
         background-size: 64px 49px;
     }
@@ -721,13 +899,18 @@
 
     /*how*/
 
+    .how__specification {
+        padding-top: 172px;
+        padding-bottom: 65px;
+    }
+
     .how__title {
         margin-bottom: 20px;
         font-size: 24px;
         line-height: 29.26px;
     }
 
-    .how__list{
+    .how__list {
         margin-bottom: 20px;
     }
 
@@ -737,8 +920,24 @@
     }
 
     .specification__bg {
-        min-height: 160px;
+        max-height: 160px;
         border-radius: 16px;
+    }
+
+    .specification__bg-pic1 {
+        background-image: url(../img/how__bg320-pic1.jpg);
+    }
+    
+    .specification__bg-pic2 {
+        background-image: url(../img/how__bg320-pic2.jpg);
+    }
+    
+    .specification__bg-pic3 {
+        background-image: url(../img/how__bg320-pic3.jpg);
+    }
+    
+    .specification__bg-pic4 {
+        background-image: url(../img/how__bg320-pic4.jpg);
     }
 
     .specification__title {
@@ -754,6 +953,7 @@
     .specification__btn {
         display: flex;
         justify-content: space-between;
+        width: 100%;
     }
 
     .specification__bth-more {
@@ -779,12 +979,12 @@
         line-height: 29.26px;
     }
 
-    .faq__item {
+    .ac .ac-trigger {
         padding-right: 47px;
     }
 
-
     .faq__item svg {
+        top: 6px;
         width: 30px;
         height: 30px;
     }
@@ -792,6 +992,12 @@
     .question__title {
         font-size: 14px;
         line-height: 24px;
+    }
+
+    .question__text {
+        padding-right: 15%;
+        font-size: 14px;
+        line-height: 28px;
     }
 
     /*footer*/
@@ -821,7 +1027,7 @@
 }
 
 @media (max-width: 360px) {
-        /*header*/
+    /*header*/
 
     .header__container {
         padding-top: 15px;
@@ -836,7 +1042,16 @@
         top: 10px;
     }
 
-        /*hero*/
+    .header__nav {
+        padding: 78px 15px 10px 15px;
+    }
+
+    .nav__link {
+        font-size: 16px;
+        line-height: 19.5px;
+    }
+
+    /*hero*/
 
     .hero__container {
         margin-bottom: 59px;
@@ -846,8 +1061,8 @@
         margin-bottom: 33px;
     }
 
-        /*about-us*/
-    
+    /*about-us*/
+
     .about-us__content {
         margin-bottom: 14px;
     }
@@ -859,12 +1074,13 @@
     .cards__left__container {
         bottom: -103%;
     }
+
     .card__right:not(:last-child) {
         margin-bottom: 30px;
     }
 
-        /*how*/
-    
+    /*how*/
+
     .how__container {
         margin-bottom: 57px;
     }
@@ -888,7 +1104,11 @@
     }
 
     .faq__item {
-        padding: 28.4px 37px 31.1px 0;
+        padding: 28.4px 0 31.1px 0;
+    }
+
+    .ac .ac-trigger {
+        padding-right: 37px;
     }
 
     .question svg {
@@ -918,7 +1138,3 @@
         height: 52px;
     }
 }
-
-
-
-
